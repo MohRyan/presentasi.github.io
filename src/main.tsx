@@ -8,6 +8,12 @@ import {
 import { Login } from './pages/Login.tsx';
 import { Register } from './pages/Register.tsx';
 import { Detail } from './pages/Detail.tsx';
+import { Vote } from './pages/Vote.tsx';
+import { DashBoard } from './pages/Admin/DashBoard.tsx';
+import { ListPaslon } from './pages/Admin/ListPaslon.tsx';
+import { ListPartai } from './pages/Admin/ListPartai.tsx';
+import { AddPartai } from './pages/Admin/AddPartai.tsx';
+import { AddPaslon } from './pages/Admin/AddPaslon.tsx';
 
 const router = createBrowserRouter([
   {
@@ -23,9 +29,37 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/detail",
+    path: "/detail1",
     element: <Detail />,
   },
+  {
+    path: "/vote",
+    element: <Vote />,
+  },
+  {
+    path: "/admin",
+    element: <DashBoard />,
+  },
+  {
+    path: "/listpaslon",
+    element: <ListPaslon />,
+  },
+  {
+    path: "/listpartai",
+    element: <ListPartai />,
+  },
+  {
+    path: "/addpaslon",
+    element: <AddPaslon />,
+  },
+  {
+    path: "/addpartai",
+    element: <AddPartai />,
+  },
+  // {
+  //   path: "/coba",
+  //   element: < />,
+  // }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

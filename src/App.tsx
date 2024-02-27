@@ -6,16 +6,18 @@ import { Motto } from './components/Motto'
 import { Navbar } from './components/Navbar'
 import { Welcome } from './components/Welcome'
 
+
+
 function App() {
   return (
     <div className='w-[1440px] h-[2361px]'>
-      <Navbar />
-      <section className='px-40 pt-14 w-screen bg-page flex justify-center items-center flex-col'>
+      <Navbar users={""} />
+      <section className='flex flex-col items-center justify-center w-screen h-full px-40 bg-page'>
         <Welcome />
         <Article />
       </section>
-      <section className='px-40 pt-14 w-screen flex justify-center items-center flex-col'>
-        <Motto />
+      <section className='flex flex-col items-center justify-center w-screen px-40 pt-14'>
+        <Motto black={""} />
       </section>
       <Footer />
     </div>

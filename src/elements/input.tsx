@@ -3,8 +3,8 @@ export const Input = (props: any) => {
     const { title, placeHolder, type } = props
     return (
         <div>
-            <p className="mb-2">{title}</p>
-            <input className="ring ring-black mb-5 py-2 ps-2 rounded-sm w-full" type={type} placeholder={placeHolder} />
+            <p className="mb-1 text-lg font-bold">{title}</p>
+            <input className="w-full py-2 mb-5 rounded-sm ring ring-black ps-2" type={type} placeholder={placeHolder} />
         </div>
     )
 }
