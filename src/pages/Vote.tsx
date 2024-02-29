@@ -12,12 +12,18 @@ import { useState } from "react"
 
 export const Vote = () => {
     const [show, setShow] = useState<boolean>(false)
+    const [sudah, setSudah] = useState<boolean>(false)
+
     const handleShow = () => {
+        setShow(!show)
+    }
+    const handleSudah = () => {
+        setSudah(!sudah)
         setShow(!show)
     }
 
     return (
-        <div>
+        <div className="overflow-hidden">
             <Navbar users={""} />
             <div className={`fixed z-50 ${!show ? "hidden" : "flex"} flex-col items-center justify-center w-screen h-screen bg-black bg-opacity-50`}>
                 <div className="relative flex flex-col items-center px-10 py-10 bg-white rounded-lg">
@@ -25,7 +31,7 @@ export const Vote = () => {
                     <div className="flex space-x-5">
                         {
                             dataPaslon.map((item) => (
-                                <button className="relative flex flex-col p-5 rounded-lg w-80 bg-slate-300 group/modal hover:bg-yellow-200 focus:bg-yellow-200">
+                                <button key={item.no} className="relative flex flex-col p-5 rounded-lg w-80 bg-slate-300 group/modal hover:bg-yellow-200 focus:bg-yellow-200">
                                     <div className={`absolute flex items-center justify-center rounded-full top-3 right-2 w-14 h-14 bg-slate-400 ring-4 ring-white group-hover/modal:bg-pink-400 group-focus/modal:bg-pink-400`}><b className="text-4xl text-white">{item.no}</b></div>
                                     <div className="w-full group-hover/modal:border-4 group-hover/modal:border-red-600 group-focus/modal:border-4 group-focus/modal:border-red-600 h-52">
                                         <img src={paslonImage} className="object-cover w-full h-full rounded-sm" alt="" />
@@ -34,7 +40,7 @@ export const Vote = () => {
                                     <p>{item.vimis}</p>
                                     <b>Partai Pengusung</b>
                                     {item.koalisi.map(partai => (
-                                        <ul>
+                                        <ul key={partai.partai}>
                                             <li>* {partai.partai}</li>
                                         </ul>
                                     ))}
@@ -44,7 +50,7 @@ export const Vote = () => {
                     </div>
                     <div className="flex space-x-11 ">
                         <Button title="Reset" hover="w-80 rounded-lg text-fisrt text-2xl hover:opacity-40" bg="border-4 border-fisrt" />
-                        <Button onClick={handleShow} title="Submit" hover="w-80 rounded-lg text-white text-2xl border-4 border-fisrt hover:opacity-40" />
+                        <Button onClick={handleSudah} title="Submit" hover="w-80 rounded-lg text-white text-2xl border-4 border-fisrt hover:opacity-40" />
                     </div>
                 </div>
             </div>
@@ -54,12 +60,12 @@ export const Vote = () => {
                     <img src={cart} className="me-32" alt="" />
                     <div>
                         <NoPaslon />
-                        <Button onClick={handleShow} title={"MASUKAN SUARAMU"} hover={"text-white px-32 hover:opacity-80"} />
+                        {
+                            !sudah ? <Button onClick={handleShow} title={"MASUKAN SUARAMU"} hover={"text-white px-32 hover:opacity-80"} /> : <p className="py-10 text-3xl font-bold text-red-600">Anda Sudah Memilih !!!!!!!</p>
+                        }
                     </div>
                 </div>
-                <div>
-                    <Paslon />
-                </div>
+                <Paslon />
                 <Motto red={""} />
             </div>
             <Footer />

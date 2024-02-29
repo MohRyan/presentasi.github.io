@@ -1,6 +1,6 @@
-import { useState } from "react"
+// import { useState } from "react"
 import { Button } from "../components/Button"
-import { Input } from "../elements/input"
+import { Input } from "../components/elements/input"
 import { Link } from "react-router-dom"
 
 const inputRegister = [
@@ -32,7 +32,7 @@ const inputRegister = [
 ]
 
 
-export const Register = ({ showRegister, closeRegister, closeLogin }: any) => {
+export const Register = ({ showRegister, closeRegister, register }: any) => {
 
     // () => {
     //     return closeRegister
@@ -46,11 +46,12 @@ export const Register = ({ showRegister, closeRegister, closeLogin }: any) => {
                 <h1 className="my-4 text-3xl font-bold text-fisrt">Register</h1>
                 {
                     inputRegister.map(item => (
-                        <Input title={item.title} placeHolder={item.placeHolder} type={item.type} />
+                        <Input key={item.title} title={item.title} placeHolder={item.placeHolder} type={item.type} />
                     ))
                 }
 
-                <Button title={"Register"} hover={"text-white hover:bg-opacity-60 rounded-lg w-full"} />
+                <Button title={"Register"} onClick={register} hover={"text-white hover:bg-opacity-60 rounded-lg w-full"} />
+                <p className="flex justify-between">Do You have an account ? <Link to="#" onClick={register} className="text-link">Login</Link></p>
             </div>
         </div>
     )

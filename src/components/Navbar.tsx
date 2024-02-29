@@ -1,31 +1,20 @@
 import { Link } from "react-router-dom"
 import logo from "../assets/images/logo-merah.svg"
 import { Button } from "./Button"
-import { useState } from "react"
-import { Login } from '../pages/Login'
-import { Register } from '../pages/Register'
+import { useEffect, useState } from "react"
+
+
 
 export const Navbar = (props: any) => {
     const { admin = "hidden", users = "hidden" } = props
-    const [isLogin, setIsLogin] = useState<boolean>(true)
-    const [showLogin, setShowLogin] = useState<boolean>(false)
-    const [showRegister, setShowRegister] = useState<boolean>(false)
 
-    const handleLogin = () => {
-        setShowLogin(!showLogin)
+
+    const handleLogout = () => {
+        localStorage.clear()
+        window.location.href = "/"
     }
 
-    const handleRegister = () => {
-        setShowRegister(!showRegister)
-    }
 
-    const handleIsLogin = () => {
-        setIsLogin(!isLogin)
-    }
-
-    // const handleShowLogin = () => {
-    //     setShowLogin(!showLogin)
-    // }
     return (
         <div className="fixed z-20 flex justify-center w-screen bg-black">
             <div className=" flex justify-between w-[1440px] h-[64px]">
@@ -40,8 +29,6 @@ export const Navbar = (props: any) => {
                 </div>
                 <div className="flex items-center">
                     <ul className={`flex ${users} text-white space-x-5 me-10 font-bold`}>
-                        <li><Link to="/admin">ADMIN</Link></li>
-                        <li>|</li>
                         <li><Link to="#">Partai</Link></li>
                         <li>|</li>
                         <li><Link to="#">Paslon</Link></li>
@@ -49,13 +36,11 @@ export const Navbar = (props: any) => {
                         <li><Link to="/vote">Voting</Link></li>
                     </ul>
                     <ul className={`flex ${admin} text-white space-x-5 me-10 font-bold`}>
-                        <li><Link to="/">USERS</Link></li>
-                        <li>|</li>
                         <li><Link to="/listpartai">Partai</Link></li>
                         <li>|</li>
                         <li><Link to="/listpaslon">Paslon</Link></li>
                     </ul>
-                    {isLogin !== true ? (
+                    {/* {isLogin !== true ? (
                         <div>
                             <div className={`flex ${users}`}>
                                 <Button bg={"bg-white rounded-full"} hover={"hover:bg-red-700 hover:text-white"} title={"Moh Ryan"} />
@@ -75,11 +60,19 @@ export const Navbar = (props: any) => {
                                 <Button bg={"bg-white rounded-full"} hover={`hover:bg-red-700 hover:text-white`} title={"Moh Ryan"} />
                             </div>
                         </div>
-                    )}
+                    )} */}
+                    <div>
+                        <div className={`flex ${users}`}>
+                            <Button bg={"bg-white rounded-full"} hover={"hover:bg-red-700 hover:text-white"} title={"Moh Ryan"} />
+                            <Link to="#"><Button bg={"bg-red-700 ms-3 text-white"} onClick={handleLogout} hover={"hover:bg-second"} title={"LogOut"} /></Link>
+                        </div>
+                        <div className={`flex ${admin}`}>
+                            <Button bg={"bg-white rounded-full"} hover={`hover:bg-red-700 hover:text-white`} title={"Moh Ryan"} />
+                            <Link to="#"><Button bg={"bg-red-700 ms-3 text-white"} onClick={handleLogout} hover={"hover:bg-second"} title={"LogOut"} /></Link>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Login showLogin={showLogin} closeLogin={handleLogin} login={handleIsLogin} />
-            <Register showRegister={showRegister} closeLogin={handleLogin} closeRegister={handleRegister} />
         </div>
     )
 }

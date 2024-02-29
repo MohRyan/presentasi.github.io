@@ -5,8 +5,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Login } from './pages/Login.tsx';
-import { Register } from './pages/Register.tsx';
 import { Detail } from './pages/Detail.tsx';
 import { Vote } from './pages/Vote.tsx';
 import { DashBoard } from './pages/Admin/DashBoard.tsx';
@@ -14,19 +12,17 @@ import { ListPaslon } from './pages/Admin/ListPaslon.tsx';
 import { ListPartai } from './pages/Admin/ListPartai.tsx';
 import { AddPartai } from './pages/Admin/AddPartai.tsx';
 import { AddPaslon } from './pages/Admin/AddPaslon.tsx';
+import { LoginStatus } from './pages/LoginStatus.tsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LoginStatus />,
+  },
+  {
+    path: "/home",
     element: <App />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
   },
   {
     path: "/detail1",

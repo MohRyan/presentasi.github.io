@@ -1,5 +1,5 @@
 import { Navbar } from '../../components/Navbar'
-import { Input } from '../../elements/input'
+import { Input } from '../../components/elements/input'
 import { Button } from '../../components/Button'
 import paslon from "../../assets/images/paslon.png"
 import { TextArea } from '../../components/TextArea'

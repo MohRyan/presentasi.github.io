@@ -5,10 +5,11 @@ import { Footer } from './components/Footer'
 import { Motto } from './components/Motto'
 import { Navbar } from './components/Navbar'
 import { Welcome } from './components/Welcome'
-
+import { useState } from 'react'
 
 
 function App() {
+
   return (
     <div className='w-[1440px] h-[2361px]'>
       <Navbar users={""} />
@@ -20,6 +21,7 @@ function App() {
         <Motto black={""} />
       </section>
       <Footer />
+
     </div>
   )
 }

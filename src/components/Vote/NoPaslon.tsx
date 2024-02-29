@@ -32,7 +32,7 @@ export const NoPaslon = () => {
         <div>
             {
                 noPaslon.map(item => (
-                    <div className={`w-[657px] h-[166px] flex items-center p-5 rounded-lg mb-5 ${item.bg}`}>
+                    <div key={item.no} className={`w-[657px] h-[166px] flex items-center p-5 rounded-lg mb-5 ${item.bg}`}>
                         <div>
                             <div className={`w-[80px] h-[112px] flex p-5 items-center rounded-md ring-1 ring-white ${item.bgNo}`}>
                                 <p className="text-center text-white">No. Paslon <span className="text-3xl font-bold">{item.no}</span></p>
