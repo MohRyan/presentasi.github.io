@@ -8,7 +8,7 @@ export const ListPartai = () => {
     return (
         <div>
             <Navbar admin={""} />
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center h-screen">
                 <b className="py-20 text-4xl text-fisrt">LIST PARTAI</b>
                 <div>
                     <div className="absolute flex items-center justify-center h-8 right-72 w-36">

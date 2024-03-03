@@ -6,10 +6,11 @@ import { TextArea } from '../../components/TextArea'
 
 
 export const AddPartai = () => {
+
     return (
         <div>
             <Navbar admin={""} />
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col items-center justify-center h-screen'>
                 <b className='py-20 text-4xl text-fisrt'>ADD PARTAI</b>
                 <div className='flex w-[1440px] justify-center items-center'>
                     <div className='mb-7'><img src={paslon} alt="" /></div>

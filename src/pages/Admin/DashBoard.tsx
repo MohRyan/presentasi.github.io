@@ -40,9 +40,9 @@ export const DashBoard = () => {
         <div className="flex flex-col items-center">
             <Navbar admin={""} />
             <div className="flex w-[1440px] flex-col items-center justify-center pt-10">
-                <div className="flex flex-col items-center h-screen">
+                <div className="flex flex-col items-center mb-5 lg:py-20">
                     <b className="py-10 text-4xl text-fisrt">DASHBOARD</b>
-                    <div className="flex items-center justify-center w-full">
+                    <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
                         {Paslon.map(item => (
                             <div className="flex flex-col items-center justify-center w-full mx-4">
                                 <div className={`flex items-center justify-center rounded-full w-20 h-20 bg-${item.bg2} my-5`}>
@@ -62,31 +62,31 @@ export const DashBoard = () => {
                         ))}
                     </div>
                 </div>
-                <div className="flex flex-col items-center justify-center w-screen py-10 bg-slate-300">
+                <div className="flex flex-col items-center justify-center w-screen py-10 overflow-auto bg-slate-300">
                     <b className="my-5 text-4xl text-fisrt">LIST OVER</b>
                     <table className="text-left border border-collapse table-auto border-slate-400 border-spacing-x-5">
                         <thead className="">
-                            <tr className="bg-white">
+                            <tr className="table-row bg-white">
                                 <th className="p-3 text-center border bg-slate-200 border-slate-300">No</th>
-                                <th className="border ps-2 pe-40 bg-slate-200 border-slate-300">Nama</th>
-                                <th className="border ps-2 pe-40 bg-slate-200 border-slate-300">Alamat</th>
-                                <th className="border ps-2 pe-40 bg-slate-200 border-slate-300">Jenis Kelamin</th>
-                                <th className="border ps-2 pe-40 bg-slate-200 border-slate-300">Paslon</th>
+                                <th className="Table__Header">Nama</th>
+                                <th className="Table__Header">Alamat</th>
+                                <th className="Table__Header">Jenis Kelamin</th>
+                                <th className="Table__Header">Paslon</th>
                             </tr>
                         </thead>
                         <tbody>
                             {listTable.map(item => (
                                 <tr className="bg-white">
                                     <td className="py-2 text-center border border-slate-300">{item.no}</td>
-                                    <td className="border ps-2 border-slate-300">{item.name}</td>
-                                    <td className="border ps-2 border-slate-300">{item.addres}</td>
-                                    <td className="border ps-2 border-slate-300">{item.gender}</td>
-                                    <td className="border ps-2 border-slate-300">{item.paslon}</td>
+                                    <td className="Table__List">{item.name}</td>
+                                    <td className="Table__List">{item.addres}</td>
+                                    <td className="Table__List">{item.gender}</td>
+                                    <td className="Table__List">{item.paslon}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                    <b className="my-5 text-3xl">TOTAL SUARA TERKUMPUL : 467 Voters</b>
+                    <b className="my-5 text-3xl">TOTAL SUARA TERKUMPUL : 1350 Voters</b>
                 </div>
             </div>
         </div>

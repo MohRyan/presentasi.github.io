@@ -1,28 +1,64 @@
 
-import './App.css'
-import { Article } from './components/Article'
-import { Footer } from './components/Footer'
-import { Motto } from './components/Motto'
-import { Navbar } from './components/Navbar'
-import { Welcome } from './components/Welcome'
-import { useState } from 'react'
+import './index.css'
+import * as React from 'react'
+import { Vote } from '@/pages/Users/Vote.tsx';
+import { DashBoard } from './pages/Admin/DashBoard.tsx';
+import { ListPaslon } from './pages/Admin/ListPaslon.tsx';
+import { ListPartai } from './pages/Admin/ListPartai.tsx';
+import { AddPartai } from './pages/Admin/AddPartai.tsx';
+import { AddPaslon } from './pages/Admin/AddPaslon.tsx';
+import { Navigate, Outlet, Route, Routes, } from 'react-router-dom'
+import { Home } from './pages/Home.tsx'
+import { Users } from './pages/Users/Users.tsx'
+import { Detail } from './pages/Users/Detail.tsx';
 
 
 function App() {
 
-  return (
-    <div className='w-[1440px] h-[2361px]'>
-      <Navbar users={""} />
-      <section className='flex flex-col items-center justify-center w-screen h-full px-40 bg-page'>
-        <Welcome />
-        <Article />
-      </section>
-      <section className='flex flex-col items-center justify-center w-screen px-40 pt-14'>
-        <Motto black={""} />
-      </section>
-      <Footer />
+  React.useEffect(() => {
+    localStorage.removeItem("Users")
+    localStorage.removeItem("Admin")
+  }, [])
 
-    </div>
+  function PrivateRoute() {
+    const user = localStorage.getItem("Users")
+    if (user) {
+      return <Outlet />
+    } else {
+      return <Navigate to="/" />
+    }
+  }
+
+  function PrivateRouteAdmin() {
+    const admin = localStorage.getItem("Admin")
+    if (admin) {
+      return <Outlet />
+    } else {
+      return <Navigate to="/" />
+    }
+  }
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/" element={<PrivateRoute />} >
+          <Route path="/users" element={<Users />} />
+          <Route path="/vote" element={<Vote />} />
+          <Route path="/detail1" element={<Detail />} />
+        </Route>
+
+        <Route path="/" element={<PrivateRouteAdmin />} >
+          <Route path="/admin" element={<DashBoard />} />
+          <Route path="/listpartai" element={<ListPartai />} />
+          <Route path="/listpaslon" element={<ListPaslon />} />
+          <Route path="/addpartai" element={<AddPartai />} />
+          <Route path="/addpaslon" element={<AddPaslon />} />
+        </Route>
+
+      </Routes>
+    </>
   )
 }
 

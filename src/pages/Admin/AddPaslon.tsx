@@ -3,12 +3,14 @@ import { Input } from '../../components/elements/input'
 import { Button } from '../../components/Button'
 import paslon from "../../assets/images/paslon.png"
 import { TextArea } from '../../components/TextArea'
+import { Link } from 'react-router-dom'
 
 export const AddPaslon = () => {
+
     return (
         <div>
             <Navbar admin={""} />
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col items-center justify-center h-screen'>
                 <b className='py-20 text-4xl text-fisrt'>ADD PASLON</b>
                 <div className='flex w-[1440px] justify-center items-center'>
                     <div className='mb-7'><img src={paslon} alt="" /></div>
